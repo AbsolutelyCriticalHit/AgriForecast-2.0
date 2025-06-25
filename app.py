@@ -4,7 +4,7 @@ import numpy as np
 
 model = joblib.load('model_rf.pkl')
 
-st.title("🌾 Crop Yield Prediction App")
+st.title("Crop Yield Prediction App (Indonesia Only)")
 
 rain = st.number_input("Average Rainfall (mm/year)", min_value=0.0)
 temp = st.number_input("Average Temperature (°C)", min_value=0.0)
