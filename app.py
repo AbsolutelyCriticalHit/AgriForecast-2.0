@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 
-model = joblib.load('model_rf_compatible.pkl')
+model = joblib.load('model_rf.pkl')
 
 st.title("Crop Yield Prediction App (Indonesia Only)")
 
