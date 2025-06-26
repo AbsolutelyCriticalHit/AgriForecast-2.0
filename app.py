@@ -5,7 +5,7 @@ import numpy as np
 # Load the trained model
 model = joblib.load('model_rf.pkl')
 
-st.title("🌾 Crop Yield Prediction App (Indonesia Only)")
+st.title("Crop Yield Prediction App (Indonesia Only)")
 
 # Inputs
 rain = st.number_input("Average Rainfall (mm/year)", min_value=0.0)
@@ -57,8 +57,6 @@ X = np.array([input_data[col] for col in model_columns]).reshape(1, -1)
 
 # Predict
 if st.button("Predict", key="predict_button"):
-    st.write("🧠 Model expects these features:", model.feature_names_in_)
-    st.write("📊 Model input array:", X)
 
     prediction = model.predict(X)[0]
     st.success(f"🌾 Predicted Yield: {prediction:.2f} hg/ha")
