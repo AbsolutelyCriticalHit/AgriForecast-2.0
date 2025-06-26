@@ -36,12 +36,12 @@ model_columns = [
     'average_rain_fall_mm_per_year',
     'pesticides_tonnes',
     'avg_temp',
-    'Item_cassava',
-    'Item_maize',
-    'Item_potatoes',
-    'Item_rice, paddy',
-    'Item_soybeans',
-    'Item_sweet potatoes'
+    'Item_Cassava',
+    'Item_Maize',
+    'Item_Potatoes',
+    'Item_Rice, paddy',
+    'Item_Soybeans',
+    'Item_Sweet potatoes'
 ]
 
 # Prepare input
