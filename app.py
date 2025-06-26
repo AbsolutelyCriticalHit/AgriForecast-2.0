@@ -5,7 +5,7 @@ import numpy as np
 # Load the trained model
 model = joblib.load('model_rf.pkl')
 
-st.title("Crop Yield Prediction App (Indonesia Only)")
+st.title("Crop Yield Prediction Web Beta  (Indonesia Only)")
 
 # Inputs
 rain = st.number_input("Average Rainfall (mm/year)", min_value=0.0)
