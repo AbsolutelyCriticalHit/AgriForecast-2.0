@@ -19,18 +19,17 @@ item = st.selectbox("Crop Type", [
     'sweet potatoes'
 ])
 
-model_columns = [
-    'Area',
-    'average_rain_fall_mm_per_year',
-    'pesticides_tonnes',
-    'avg_temp',
-    'Item_cassava',
-    'Item_maize',
-    'Item_potatoes',
-    'Item_rice, paddy',
-    'Item_soybeans',
-    'Item_sweet potatoes'
-]
+item_map = {
+  'cassava': 'Item_cassava',
+  'maize': 'Item_maize',
+  'potatoes': 'Item_potatoes',
+  'rice, paddy': 'Item_rice_paddy',
+  'soybeans': 'Item_soybeans',
+  'sweet potatoes': 'Item_sweet_potatoes'
+}
+selected = item_map[item]
+input_data[selected] = 1
+
 
 input_data = {col: 0 for col in model_columns}
 input_data['average_rain_fall_mm_per_year'] = np.log(rain + 1)
@@ -42,5 +41,13 @@ input_data['Area'] = 1  # Hardcoded to Indonesia
 X = np.array([input_data[col] for col in model_columns]).reshape(1, -1)
 
 if st.button("Predict", key="predict_button"):
+    # Show expected features from the model
+    st.write("🧠 Model expects these features:", model.feature_names_in_)
+    
+    # Show what is being passed in
+    st.write("📊 Model input array:", X)
+
+    # Make prediction
     prediction = model.predict(X)[0]
     st.success(f"🌾 Predicted Yield: {prediction:.2f} hg/ha")
+
